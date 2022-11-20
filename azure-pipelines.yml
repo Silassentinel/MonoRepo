@@ -1,0 +1,33 @@
+# Mono repo containing sub projcts
+# The subprojects are built with nodejs and are in typescript language
+# The mono repo yaml will be triggered  by commits and pull requests
+# and activates the sub projects yamls to install, test, built and deploy
+
+# name of mono repo : website
+
+trigger:
+  paths:
+    exclude: # Exclude subProjects!
+      - 'FrontEnd/*'
+      - 'BackEnd/*'
+  branches:
+   include: # only trigger with merges to main brnach
+     - main
+     - dev
+     - feature
+     - test
+
+stages:
+  - stage: Setup_Nodejs
+
+  - stage: SecurityCheck_FrontEnd
+
+  - stage: SecurityCheck_BackEnd
+  - stage: Install_FrontEnd
+  - stage: Install_BackEnd
+  - stage: Test_FrontEnd
+  - stage: Test_BackEnd
+  - stage: Build_FrontEnd
+  - stage: Build_BackEnd
+  - stage: Deploy_FrontEnd
+  - stage: Deploy_BackEnd

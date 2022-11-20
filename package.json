@@ -1,0 +1,23 @@
+{
+    "name": "@silassentinel/playground",
+    "description": "This project serves as a template to develop a react app written in Typescript via TDD. BackEnd is included in the project.",
+    "version": "0.0.1",
+    "private": true,
+    "workspaces": [
+        "./packages/FrontEndLib",
+        "./packages/ReactHooks",
+        "./packages/ViteFront",
+        "./packages/BackEnd",
+        "./packages/OAuth",
+        "./packages/AutoCheckIntoGit",
+        "./packages/Logger",
+        "./packages/ShowGHRepos",
+        "./packages/ToolBox",
+        "./packages/Testing",
+        "./packages/TS_TDD22Temp"
+    ],
+    "devDependencies": {
+        "@babel/plugin-transform-typescript": "^7.20.2",
+        "turbo": "^1.6.3"
+    }
+}

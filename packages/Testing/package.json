@@ -1,0 +1,74 @@
+{
+  "name": "@silassentinel/testing",
+  "private": true,
+  "version": "1.0.0",
+  "description": "This will be the template in Typescript via TDD for 2022",
+  "main": "Main.ts",
+  "scripts": {
+    "test": "mocha ./src/test/**/*.spec.ts*"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "Testing",
+    "Helpers",
+    "FrontEnd",
+    "BackEnd"
+  ],
+  "author": "silassentinel",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.1.3",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-validator": "^6.14.2",
+    "helmet": "^6.0.0",
+    "mysql": "^2.18.1",
+    "oauth2-server": "^3.1.1",
+    "tslib": "^2.4.0",
+    "uuid": "^9.0.0",
+    "@silassentinel/frontendlib": "file:../frontendlib",
+    "@silassentinel/vitefront" : "file:../vitefront",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^18.11.9",
+    "@types/supertest": "^2.0.12",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "@typescript-eslint/parser": "^5.41.0",
+    "chai": "^4.3.6",
+    "eslint": "^8.23.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-security": "^1.5.0",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.19",
+    "prettier": "^2.7.1",
+    "supertest": "^6.2.4",
+    "ts-node": "^10.8.2",
+    "tsconfig-paths": "^4.0.0",
+    "typescript": "^4.7.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  }
+}
