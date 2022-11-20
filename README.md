@@ -24,7 +24,7 @@ Prerequisite:
     1. CD into project root
     1. Run `npm install`
 2.	Software dependencies
-2.1.Can be found in the packages file.
+    1. Can be found in the packages file.
 3.	Latest releases
 4.	API references
 
