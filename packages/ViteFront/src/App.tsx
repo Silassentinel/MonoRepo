@@ -1,37 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-
-import ToolBox from "../../ToolBox/src/Class/ToolBox"
+// #region imports
+// #region styles
+import './stylez/Style.css';
+// #endregion
+// #region components
+import {
+  BrowserRouter as Router, Route, Routes,
+} from 'react-router-dom';
+import Header from '@silassentinel/frontendlib/src/components/header/Header';
+import Footer from '@silassentinel/frontendlib/src/components/footer/Footer';
+// #endregion
+// #region views
+import About from './views/About';
+import Blogs from './views/Blogs';
+import Contact from './views/Contact';
+import Cookie from './views/Cookie';
+import Home from './views/Home';
+import Jobs from './views/Jobs';
+import NoMatch from './views/NoMatch';
+import Privacy from './views/Privacy';
+// #endregion
+import Clients from './views/Clients';
+// #endregion
+// #region Constants
+// #endregion
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <div>
-          {ToolBox.IsStringEmpty(" a ") ? "empty" : "not empty"}
-        </div>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/about" element={<About />} />
+          <Route path="/Contact" element={<Contact />} />
+          <Route path="/Jobs" element={<Jobs />} />
+          <Route path="/Cookie" element={<Cookie />} />
+          <Route path="/Privacy" element={<Privacy />} />
+          <Route path="/Jobs" element={<Jobs />} />
+          <Route path="/Clients" element={<Clients />} />
+          <Route path="/Blogs" element={<Blogs />} />
+          <Route path="*" element={<NoMatch />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+        <Footer />
+      </Router>
     </div>
   )
 }

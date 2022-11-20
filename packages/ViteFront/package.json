@@ -4,15 +4,17 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start" : "vite --open",
+    "start": "vite --open",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@silassentinel/frontendlib": "file:../toolbox",
+    "@silassentinel/toolbox": "file:../toolbox",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@silassentinel/toolbox" : "file:../toolbox"
+    "react-router-dom": "^6.4.3"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",
