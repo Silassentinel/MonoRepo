@@ -1,0 +1,89 @@
+{
+    "clients": [
+        {
+            "Id": "1",
+            "Name": "John",
+            "Location": "New York",
+            "Tools": [
+                "JavaScript",
+                "React",
+                "Redux"
+            ],
+            "Img": "https://avatars0.githubusercontent.com/u/17098477?s=460&v=4",
+            "Description": "I am a JavaScript developer",
+            "Skills": [
+                "JavaScript",
+                "React",
+                "Redux"
+            ]
+        },
+        {
+            "Id": "2",
+            "Name": "John",
+            "Location": "New York",
+            "Tools": [
+                "JavaScript",
+                "React",
+                "Redux"
+            ],
+            "Img": "https://avatars0.githubusercontent.com/u/17098477?s=460&v=4",
+            "Description": "I am a JavaScript developer",
+            "Skills": [
+                "JavaScript",
+                "React",
+                "Redux"
+            ]
+        },
+        {
+            "Id": "3",
+            "Name": "John",
+            "Location": "New York",
+            "Tools": [
+                "JavaScript",
+                "React",
+                "Redux"
+            ],
+            "Img": "https://avatars0.githubusercontent.com/u/17098477?s=460&v=4",
+            "Description": "I am a JavaScript developer",
+            "Skills": [
+                "JavaScript",
+                "React",
+                "Redux"
+            ]
+        },
+        {
+            "Id": "4",
+            "Name": "John",
+            "Location": "New York",
+            "Tools": [
+                "JavaScript",
+                "React",
+                "Redux"
+            ],
+            "Img": "https://avatars0.githubusercontent.com/u/17098477?s=460&v=4",
+            "Description": "I am a JavaScript developer",
+            "Skills": [
+                "JavaScript",
+                "React",
+                "Redux"
+            ]
+        },
+        {
+            "Id": "5",
+            "Name": "John",
+            "Location": "New York",
+            "Tools": [
+                "JavaScript",
+                "React",
+                "Redux"
+            ],
+            "Img": "https://avatars0.githubusercontent.com/u/17098477?s=460&v=4",
+            "Description": "I am a JavaScript developer",
+            "Skills": [
+                "JavaScript",
+                "React",
+                "Redux"
+            ]
+        }
+    ]
+}

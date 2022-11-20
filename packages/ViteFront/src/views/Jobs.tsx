@@ -1,7 +1,7 @@
 // #region imports
 import { CardGroup, Container } from 'react-bootstrap';
-import JobType from '../types/Job';
-import JobComponent from '../components/job/JobComponent';
+import JobType from '@silassentinel/frontendlib/src/types/Job';
+import JobComponent from '@silassentinel/frontendlib/src/components/job/JobComponent';
 // eslint-disable-next-line import/extensions
 import JobData from '../data/Jobs.json';
 // #endregion

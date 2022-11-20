@@ -5,7 +5,6 @@ import Carousel from 'react-bootstrap/Carousel';
 // import clientType from "../types/Client";
 // import clientData from "../data/Clients.json";
 // #endregion
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 // const { clients } = clientData;
 // console.log(clients);

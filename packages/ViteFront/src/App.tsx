@@ -1,6 +1,5 @@
 // #region imports
 // #region styles
-import './stylez/Style.css';
 // #endregion
 // #region components
 import {

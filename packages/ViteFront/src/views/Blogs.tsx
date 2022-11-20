@@ -1,7 +1,7 @@
 // #region imports
 import { Container, Row } from 'react-bootstrap';
-import BlogType from '../types/Blog';
-import BlogComponent from '../components/blog/BlogComponent';
+import BlogType from '@silassentinel/frontendlib/src/types/Blog';
+import BlogComponent from '@silassentinel/frontendlib/src/components/blog/BlogComponent';
 // eslint-disable-next-line import/extensions
 import BlogData from '../data/Blogs.json';
 // #endregion

@@ -1,8 +1,8 @@
 // region functions
-import GetCurrentYear from '../../scripts/GetCurrentYear';
+import ToolBox from '@silassentinel/toolbox/src/Class/ToolBox';
 // #endregion
 // #region constants
-const year = GetCurrentYear();
+const year = ToolBox.GetCurrentYear();
 // #endregion
 /**
  *
