@@ -1,14 +1,10 @@
 # todo:
 - investigate nextjs to compare server side rendering with vite.
 ## remod:
-- Throw away CRA too much fuss, vite is the way to go.
 - make shared libs for components to use for serveral frontend apps 
-    @Silassentinel/header
-    @Silassentinel/footer
-
-- make use of the toolbox library to apply dry principles
-
-
+    @Silassentinel/frontEndLib
+    @Silassentinel/frontEndLib/Components
+    @Silassentinel/frontEndLib/Components/etc
 
 ------------------
 
