@@ -21,8 +21,8 @@ Prerequisite:
 
 
 1.	Installation process:
-1.1. CD into project root
-1.2. Run `npm install`
+    1. CD into project root
+    1. Run `npm install`
 2.	Software dependencies
 2.1.Can be found in the packages file.
 3.	Latest releases
