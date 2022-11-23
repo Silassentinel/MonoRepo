@@ -1,5 +1,7 @@
 # todo:
 - investigate nextjs to compare server side rendering with vite.
+- https://stackoverflow.blog/2022/11/16/biometric-authentication-for-web-devs/
+    - https://webauthn.guide/
 ## remod:
 - make shared libs for components to use for serveral frontend apps 
     @Silassentinel/frontEndLib
