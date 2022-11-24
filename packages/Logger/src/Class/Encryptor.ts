@@ -3,11 +3,12 @@ import EncryptionAlgo from 'Enum/EncryptionAlgo';
 import Crypto, { HashOptions } from 'crypto';
 import EncryptionError from 'utilities/Errors/EncryptionError';
 import uuid from 'uuid';
+import IEncryptor from 'Interface/IEncryptor';
 // #endregion
 /**
  * This class will contain all functions and logic to encrypt and decrypt data.
  */
-class Encryptor {
+class Encryptor implements IEncryptor {
   // #region props
 
   /**
@@ -127,7 +128,7 @@ class Encryptor {
       key = derivedKey.toString('utf8');
     });
     const pk = Crypto.createPrivateKey('pkcs8');
-    return key;
+    return key || '';
   };
 
   /**

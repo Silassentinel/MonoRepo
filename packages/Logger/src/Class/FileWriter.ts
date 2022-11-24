@@ -21,6 +21,14 @@ class FileWriter implements IFileWriter {
 
   // #endregion
   // #region ctor
+  /**
+   * This constructor will initialize the FileWriter.
+   * @param fileConfig {IFileConfig} The file configuration.
+   */
+  constructor(fileConfig: IFileConfig) {
+    this._fileConfig = fileConfig;
+  }
+
   // #endregion
   // #region methods
   // #region getters/setters
@@ -57,6 +65,7 @@ class FileWriter implements IFileWriter {
       /* const encryptedData = */ this.encryptor.Encrypt(data);
     }
     // if fileConfig-isCompressed is true then compress the data.
+    
     // if fileConfig-isEncrypted is true and fileConfig-isCompressed is true then encrypt and compress the data.
     // if fileConfig-isEncrypted is false and fileConfig-isCompressed is false then write the data as it is.
     fs.writeFile(path, data, (err) => {

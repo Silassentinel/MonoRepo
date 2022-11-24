@@ -1,5 +1,7 @@
+/* eslint-disable no-console */
 // #region imports
 import ILogger from 'Interface/ILogger';
+import LoggerError from 'utilities/Errors/LoggerError';
 import LogLevel from '../Enum/LogLevel';
 import DBType from '../Enum/DBType';
 import ConsoleConfig from './ConsoleConfig';
@@ -77,30 +79,72 @@ class Logger implements ILogger {
   // #endregion
   // #region ctor
   constructor(
-    logLevel: LogLevel,
-    toFile: boolean,
-    toDb: boolean,
-    toConsole: boolean,
-    typeOfDB: DBType,
-    consoleConfig: ConsoleConfig,
+    logLevel?: LogLevel,
+    toFile?: boolean,
+    toDb?: boolean,
+    toConsole?: boolean,
+    typeOfDB?: DBType,
+    consoleConfig?: ConsoleConfig,
     // fileConfig: FileConfig,
   ) {
-    this.SetLogLevel(logLevel);
-    this.SetIsToFile(toFile);
-    this.SetIsToDB(toDb);
-    this.SetIsToConsole(toConsole);
-    this.SetDBType(typeOfDB);
-    this.SetConsoleConfig(consoleConfig);
+    if (logLevel) {
+      this.SetLogLevel(logLevel);
+    }
+    if (toFile) {
+      this.SetIsToFile(toFile);
+    }
+    if (toDb) {
+      this.SetIsToDB(toDb);
+    }
+    if (toConsole) {
+      this.SetIsToConsole(toConsole);
+    }
+    if (typeOfDB) {
+      this.SetDBType(typeOfDB);
+    }
+    if (consoleConfig) {
+      this.SetConsoleConfig(consoleConfig);
+    }
   }
+
   // #endregion
   // #region methods
   /**
    * This function will log the message.
    * @param message {string} message to be logged.
    * @param logLevel {LogLevel} log level of the message.
-   * @param optionalParams {any[]} optional parameters to be logged.
+   * @param optionalParams {string[]} optional parameters to be logged.
    */
-  Log: (logLevel: LogLevel, message: string, ...optionalParams: any[]) => {};
+  Log = (message: string/* , ...optionalParams: string[] */) => {
+    if (this.GetIsToConsole()) {
+      if (this.GetLogLevel() === LogLevel.Debug) {
+        console.debug(message);
+      }
+      if (this.GetLogLevel() === LogLevel.Error) {
+        console.error(message);
+      }
+      if (this.GetLogLevel() === LogLevel.Info) {
+        console.info(message);
+      }
+      if (this.GetLogLevel() === LogLevel.Warning) {
+        console.warn(message);
+      }
+      if (this.GetLogLevel() === LogLevel.Fatal) {
+        console.error(message);
+      }
+    }
+    if (this.GetIsToFile()) {
+      this.GetFileWriter()?.Write(message);
+    }
+    if (this.GetIsToDB()) {
+      throw new LoggerError(
+        'Logger - Log',
+        'Logging to DB is not implemented yet.',
+        new Error()?.stack,
+        'Not implemented yet.',
+      );
+    }
+  };
 
   // #region getters/Setters
 
@@ -189,7 +233,9 @@ class Logger implements ILogger {
     * This function will set the flag to write to file or not.
     * @param toFile
     */
-  SetIsToFile = (toFile: boolean) => { this._toFile = toFile; };
+  SetIsToFile = (toFile: boolean) => {
+    this._toFile = toFile;
+  };
 
   /**
     * This function will set the log level.

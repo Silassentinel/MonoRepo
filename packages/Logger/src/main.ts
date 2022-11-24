@@ -111,12 +111,12 @@ const main = async (args) => {
   // #region logger
 
   const logger = Factory.CreateLogger(loggerParams);
-  
+
   // #endregion
 
   // #region log
 
-  logger.log('Hello World');
+  logger.Log('Hello World');
 
   // #endregion
 };

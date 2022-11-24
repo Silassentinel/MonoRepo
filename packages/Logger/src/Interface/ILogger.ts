@@ -34,7 +34,7 @@ interface ILogger {
    * @param logLevel {LogLevel} log level of the message.
    * @param optionalParams {any[]} optional parameters to be logged.
    */
-  Log: (logLevel: LogLevel, message: string, ...optionalParams: any[]) => void;
+  Log: (message: string/* , ...optionalParams: string[] */) => void;
   // #region getters/Setters
 
   /**
