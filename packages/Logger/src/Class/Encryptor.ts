@@ -1,6 +1,6 @@
 // #region imports
 import EncryptionAlgo from 'Enum/EncryptionAlgo';
-import Crypto, { HashOptions } from 'crypto';
+import Crypto, { Hash, HashOptions } from 'crypto';
 import EncryptionError from 'utilities/Errors/EncryptionError';
 import uuid from 'uuid';
 import IEncryptor from 'Interface/IEncryptor';
@@ -120,7 +120,7 @@ class Encryptor implements IEncryptor {
   /**
    * This method will create a private key
    */
-  private _createPrivateKey = async (): string => {
+  private _createPrivateKey = async (): Promise <string > => {
     const iv = Crypto.randomBytes(4096);
     let key;
     Crypto.scrypt('password', 'salt', 4096, (err, derivedKey) => {
@@ -134,7 +134,7 @@ class Encryptor implements IEncryptor {
   /**
    * This method will create a public key
    */
-  private _createPublicKey = (): string => { };
+  private _createPublicKey = (): string => '';
 
   /**
    * This method will create a hash
@@ -150,7 +150,7 @@ class Encryptor implements IEncryptor {
    * This method will compare hashes
    * To be used before and after encryption
    */
-  private _compareHashes = (hashOne, hashTwo): boolean => hashOne === hashTwo;
+  private _compareHashes = (hashOne: Hash, hashTwo: Hash): boolean => hashOne === hashTwo;
 
   /**
    * This method will create a salt
