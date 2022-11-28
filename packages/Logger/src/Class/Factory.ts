@@ -37,10 +37,18 @@ class Factory {
     return new Logger(logLevel, toFile, toDb, toConsole, typeOfDB, consoleConfig);
   }
 
+  /**
+   * This function will create an encryptor object.
+   * @returns {IEncryptor} Encryptor
+   */
   static CreateEncryptor(): IEncryptor {
     return new Encryptor();
   }
 
+  /**
+   * This function will create a file writer object.
+   * @returns {IFileWriter} FileWriter
+   */
   static CreateFileWriter(): IFileWriter {
     return new FileWriter();
   }

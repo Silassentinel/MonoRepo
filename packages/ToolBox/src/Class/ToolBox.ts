@@ -31,14 +31,14 @@ class ToolBox {
     * @param data {Record<String,String>} object to get keys from
     * @returns {string[]} array of keys
     */
-  static getKeys = (data: Record<string, string>): string[] => Object.keys(data);
+  static GetKeys = (data: Record<string, string>): string[] => Object.keys(data);
 
   /**
     *  Helper function to get all the values of an object.
     * @param data {Record<String,String>} object to get values from
     * @returns {string[]} array of values
     */
-  static getValues = (data: Record<string, string>): string[] => Object.values(data);
+  static GetValues = (data: Record<string, string>): string[] => Object.values(data);
 
   /**
    * This function will create an apî key for the given user.
@@ -87,6 +87,27 @@ class ToolBox {
    * @returns the new client card
    */
   static JsonToNewClient = (jsonFile: string) => JSON.parse(jsonFile) as Client[];
+
+  /**
+   * This function will check a filepath to verify tere is no filepath traversal attack possible.
+   * @param filePath the path to the file
+   * @returns the filepaht or an error
+   */
+  static SanitizeFilePath = (filePath: string): string | ToolBoxError => {
+    // filepath traversal checks
+    if (ToolBox.IsNullOrUndefined(filePath)) return new ToolBoxError('File path is required');
+    if (ToolBox.IsStringEmpty(filePath)) return new ToolBoxError('File path is required');
+    if (filePath.includes('..')) return new ToolBoxError('File path is invalid');
+    // return the file path
+    return filePath;
+  };
+
+  /**
+   * This function will check if a given value is a string.
+   * @param value the value to check
+   * @returns true if the value is a string
+   */
+  static IsString = (value : unknown) : boolean => typeof value === 'string';
 
   // #endregion
 }

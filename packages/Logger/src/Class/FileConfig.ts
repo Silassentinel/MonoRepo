@@ -12,6 +12,8 @@ import MESSAGE_SEPERATOR from '../Enum/MessageSeperator';
 class FileConfig implements IFileConfig, IOutputFormat {
   // #region props
 
+  private _IsCompressed!: boolean;
+
   /**
    * This property will hold the flag to format the output to a table or not.
    */
@@ -87,9 +89,14 @@ class FileConfig implements IFileConfig, IOutputFormat {
     this.SetFileLocation(fileLocation);
     this.SetFileSize(fileSize);
   }
+
   // #endregion
   // #region methods
   // #region getters/Setters
+  /**
+   * This function will return true if the file should be compressed.
+   */
+  GetIsCompressed = (): boolean => this._IsCompressed;
 
   /**
    * This function will return the flag which controls whether the output is encrypted or not.
@@ -152,6 +159,13 @@ class FileConfig implements IFileConfig, IOutputFormat {
   GetLayout = (): LAYOUT => this._layout;
 
   // --------------------------------
+
+  /**
+   *
+   */
+  SetIsCompressed = (isCompressed: boolean): void => {
+    this._IsCompressed = isCompressed;
+  };
 
   /**
    * This function will set the name of the file.

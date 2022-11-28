@@ -1,6 +1,5 @@
 // #region imports
 import fs from 'fs';
-import IEncryptor from 'Interface/IEncryptor';
 import IFileConfig from 'Interface/IFileConfig';
 import IFileWriter from 'Interface/IFileWriter';
 // #endregion
@@ -9,11 +8,6 @@ import IFileWriter from 'Interface/IFileWriter';
  */
 class FileWriter implements IFileWriter {
   // #region props
-  /**
-   * To encrypt the data.
-   */
-  encryptor!: IEncryptor;
-
   /**
    * This property will hold the file configuration.
    */
@@ -25,6 +19,8 @@ class FileWriter implements IFileWriter {
    * This constructor will initialize the FileWriter.
    * @param fileConfig {IFileConfig} The file configuration.
    */
+  constructor()
+
   constructor(fileConfig: IFileConfig) {
     this._fileConfig = fileConfig;
   }
@@ -56,17 +52,24 @@ class FileWriter implements IFileWriter {
    * @async
    */
   Write = (data: string): void => {
-    const filePath : string = this.GetFileConfig().GetFileLocation();
-    const fileName : string = this.GetFileConfig().GetFileName();
-    const fileExtension : string = this.GetFileConfig().GetFileExtension();
+    // let formattedData = data;
+    const filePath: string = this.GetFileConfig().GetFileLocation();
+    const fileName: string = this.GetFileConfig().GetFileName();
+    const fileExtension: string = this.GetFileConfig().GetFileExtension();
     const path = `${filePath + fileName + fileExtension}`;
     // if fileConfig-isEncrypted is true then encrypt the data.
-    if (this.GetFileConfig().GetIsEncrypted()) {
-      /* const encryptedData = */ this.encryptor.Encrypt(data);
+    /*     if (this.GetFileConfig().GetIsEncrypted()) {
+      const encryptedData = Factory.CreateEncryptor().Encrypt(data);
     }
     // if fileConfig-isCompressed is true then compress the data.
-    
+    if (this.GetFileConfig().get()) {
+      const compressedData = Factory.CreateCompressor().Compress(data);
+    }
+
     // if fileConfig-isEncrypted is true and fileConfig-isCompressed is true then encrypt and compress the data.
+    if (this.GetFileConfig().GetIsEncrypted()) {
+      formattedData = this.encryptor.Encrypt(data);
+    } */
     // if fileConfig-isEncrypted is false and fileConfig-isCompressed is false then write the data as it is.
     fs.writeFile(path, data, (err) => {
       console.error(err);

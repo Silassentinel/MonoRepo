@@ -16,6 +16,12 @@ interface IFileConfig {
   // #region getters/Setters
 
   /**
+   * This functions returns true if the file should be compressed.
+   * @returns {boolean} True if the file should be compressed.
+   */
+  GetIsCompressed : () => boolean;
+
+  /**
    * This function will return the flag which controls whether the output is encrypted or not.
    * @returns {boolean} isEncrypted
    */
@@ -76,6 +82,13 @@ interface IFileConfig {
   GetLayout : ()=> LAYOUT;
 
   // --------------------------------
+
+  /**
+   * This function will set the flag to compress the file or not.
+   * @param isCompressed {boolean} True if the file should be compressed.
+   * @returns {void}
+   */
+  SetIsCompressed : (isCompressed: boolean)=> void;
 
   /**
    * This function will set the name of the file.

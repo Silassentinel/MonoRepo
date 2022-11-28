@@ -8,13 +8,13 @@ import IFileWriter from './IFileWriter';
  * This interface will be used to type the params object passed to the Logger class.
  */
 interface ILoggerParams {
-    logLevel: LogLevel;
-    toFile: boolean;
-    toDb: boolean;
-    toConsole: boolean;
-    typeOfDB: DBType;
     consoleConfig: IConsoleConfig;
     fileWriter: IFileWriter;
+    logLevel: LogLevel;
+    toConsole: boolean;
+    toFile: boolean;
+    toDb: boolean;
+    typeOfDB: DBType;
  }
 
 export default ILoggerParams;

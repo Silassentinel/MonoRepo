@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 // #region imports
-import IEncryptor from './IEncryptor';
 import IFileConfig from './IFileConfig';
 // #endregion
 /**
@@ -8,7 +7,6 @@ import IFileConfig from './IFileConfig';
  */
 interface IFileWriter {
   // #region props
-  encryptor: IEncryptor;
   // #endregion
   // #region ctor
   // #endregion
