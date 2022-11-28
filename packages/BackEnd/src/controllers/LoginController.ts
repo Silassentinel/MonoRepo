@@ -40,7 +40,7 @@ class LoginController {
         }).catch((error : Error) => {
           // eslint-disable-next-line no-console
           console.log(`error: ${error}`);
-          // response.send(error);
+          response.send(error.message);
         });
     });
   };
