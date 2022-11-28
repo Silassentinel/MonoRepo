@@ -20,7 +20,7 @@ class Parser {
   // #region ctor
   constructor(pathTojsonFile: string) {
     const sanitizedPath = Toolbox.SanitizeFilePath(pathTojsonFile);
-    if (Toolbox.IsString(sanitizedPath)) this.pathToJsonFile = sanitizedPath;
+    if (Toolbox.IsString(sanitizedPath)) this.pathToJsonFile = sanitizedPath as string;
   }
   // #endregion
   // #region methods
