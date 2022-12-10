@@ -18,11 +18,22 @@ router.post('*', (req, res) => {
   console.log(req.headers.toString()); // TODO: check the implications of this
   res.status(404).redirect('/home');
 });
-// #endregion
 
 // #region PUT
+router.put('*', (req, res) => {
+  // eslint-disable-next-line no-console
+  console.log(req.headers.toString()); // TODO: check the implications of this
+  res.status(404).redirect('/home');
+});
 // #endregion
+
 // #region DELETE
+router.delete('*', (req, res) => {
+  // eslint-disable-next-line no-console
+  console.log(req.headers.toString()); // TODO: check the implications of this
+  res.status(404).redirect('/home');
+});
+// #endregion
 // #endregion
 
 export default router;

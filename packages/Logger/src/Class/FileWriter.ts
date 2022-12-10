@@ -62,9 +62,12 @@ class FileWriter implements IFileWriter {
       const encryptedData = Factory.CreateEncryptor().Encrypt(data);
     }
     // if fileConfig-isCompressed is true then compress the data.
+<<<<<<< HEAD
     if (this.GetFileConfig().get()) {
       const compressedData = Factory.CreateCompressor().Compress(data);
     }
+=======
+>>>>>>> c9f0db7 (backend work)
 
     // if fileConfig-isEncrypted is true and fileConfig-isCompressed is true then encrypt and compress the data.
     if (this.GetFileConfig().GetIsEncrypted()) {

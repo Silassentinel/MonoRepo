@@ -23,11 +23,11 @@ router.post('/Login', [jsonParser,
   header('password').isLength({ min: 25 }).withMessage('Password is required'),
   header('password').isAlphanumeric().withMessage('Password must be alphanumeric'),
 ], LoginController.Check);
-// // #endregion
-// // #region PUT
+// #endregion
+// #region PUT
 // router.route('').put();
-// // #endregion
-// // #region DELETE
+// #endregion
+// #region DELETE
 // router.route('').delete();
 // #endregion
 
