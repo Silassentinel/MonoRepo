@@ -10,8 +10,6 @@ enum EncryptionAlgo
     AES_256 = 'aes-256-cbc',
     /** RSA - 4096*/
     RSA_4096 = 'RSA-4096',
-    /** DES*/
-    DES = 'DES-EDE3-CBC',
     /** Blowfish*/
     BLOWFISH = 'BF-CBC',
     /** Twofish*/
