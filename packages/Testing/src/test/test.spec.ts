@@ -11,7 +11,7 @@ dotenv.config();
 
 // #region constants
 const { PORT } = process.env;
-const request = supertest(`http://localhost:${PORT}`);
+const request = supertest(`https://localhost:${PORT}`);
 // #endregion
 
 // #region test
