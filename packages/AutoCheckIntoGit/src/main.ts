@@ -13,6 +13,7 @@ const main = async () => {
     // if powershell is present
     if (osVersion.includes('Microsoft')) {
       // run script/win.ps1
+      
     } else {
       // run script/win.bat
     }
