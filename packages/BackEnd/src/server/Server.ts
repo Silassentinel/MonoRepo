@@ -45,7 +45,9 @@ const Run = async () => {
   // app.use('*', FallBackRoute);
 
   // eslint-disable-next-line no-console
-  app.listen(port, () => console.log(`Server is running on port ${port}`));
+  app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+  });
 };
 
 export default Run;

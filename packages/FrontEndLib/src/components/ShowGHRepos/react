@@ -1,0 +1,3 @@
+will collect all repo's by calling the github api
+
+parse the results and show the data in a table

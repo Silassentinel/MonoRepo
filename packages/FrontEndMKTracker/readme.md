@@ -1,0 +1,160 @@
+will try to track the mouse movements, clicks, scrolls, swipes, drags, drops of the current user on the website
+for each component, it will report the following:
+    - component 
+        - name
+        - type
+        - id
+        - class
+        - style
+        - attributes
+        - innerHTML
+        - innerText
+        - outerHTML
+        - outerText
+        - x
+        - y
+    - mouse movements
+        - x
+        - y
+        - x relative to component
+        - y relative to component
+        - current datetime
+        - duration of movement
+        - direction of movement
+        - distance of movement
+        - speed of movement
+        - number of movements
+        - movementstart
+            - x
+            - y
+        - movementend
+            - x
+            - y
+        
+    - mouse clicks
+        - x
+        - y
+        - x relative to component
+        - y relative to component
+        - current datetime
+        - duration of click
+        - number of clicks
+        - click type
+    - mouse scrolls
+        - x
+        - y
+        - x relative to component
+        - y relative to component
+        - current datetime
+        - scroll direction
+        - scroll amount
+    - mouse swipes
+        - x
+        - y
+        - x relative to component
+        - y relative to component
+        - current datetime
+        - swipe direction
+        - swipe amount
+        - movementstart
+            - x
+            - y
+        - movementend
+            - x
+            - y
+        
+    - mouse drags
+        - x
+        - y
+        - x relative to component
+        - y relative to component
+        - current datetime
+        - drag direction
+        - drag amount
+        - movementstart
+            - x
+            - y
+        - movementend
+            - x
+            - y
+    - mouse drops
+        - x
+        - y
+        - x relative to component
+        - y relative to component
+        - current datetime
+        - drop direction
+        - drop amount
+        - movementstart
+            - x
+            - y
+        - movementend
+            - x
+            - y
+    - mouse hovers
+        - x
+        - y
+        - x relative to component
+        - y relative to component
+        - current datetime
+        - duration of hover
+        - number of hovers
+        - movementstart
+            - x
+            - y
+        - movementend
+            - x
+            - y
+    - mouse enters
+        - x
+        - y
+        - x relative to component
+        - y relative to component
+        - current datetime
+        - duration of enter
+        - number of enters
+        - movementstart
+            - x
+            - y
+        - movementend
+            - x
+            - y
+    - mouse leaves
+        - x
+        - y
+        - x relative to component
+        - y relative to component
+        - current datetime
+        - duration of leave
+        - number of leaves
+        - movementstart
+            - x
+            - y
+        - movementend
+            - x
+            - y
+    - Text
+        - Selected
+        - what was selected
+        - duration
+        - current datetime
+    - Keyboard
+        - key pressed
+            - key
+            - key code
+            - key name
+            - current datetime
+        - key released
+        - key held
+    - Cookies
+        - name
+        - value
+        - current datetime
+    - LocalStorage
+        - name
+        - value
+        - current datetime
+    - SessionStorage
+        - name
+        - value
+        - current datetime

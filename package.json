@@ -13,6 +13,12 @@
         "./packages/Logger",
         "./packages/ShowGHRepos",
         "./packages/ToolBox",
+        "./packages/ServerResourceMonitor",
+        "./packages/FrontEndMKTracker",
+        "./packages/Notifier",
+        "./packages/PicOfTheDay",
+        "./packages/DocsGenerator",
+        "./packages/Translator",
         "./packages/Testing",
         "./packages/TS_TDD22Temp"
     ],

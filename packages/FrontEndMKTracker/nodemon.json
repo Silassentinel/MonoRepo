@@ -1,0 +1,14 @@
+{
+    "verbose": true,
+    "ignore" : [
+        "node_modules",
+        "**/*.spec.ts",
+        "**/*.test.ts",
+        "**/*.d.ts"
+    ],
+    "execMap": {
+        "ts": "ts-node"
+    },
+    "watch": ["./src/**/*.ts"],
+    "exec" : "ts-node ./src/main.ts"
+}
