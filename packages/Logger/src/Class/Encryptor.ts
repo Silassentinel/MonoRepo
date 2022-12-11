@@ -96,7 +96,6 @@ class Encryptor implements IEncryptor {
     if (this._encryptionAlgo === EncryptionAlgo.BLOWFISH) return data;
     if (this._encryptionAlgo === EncryptionAlgo.CAST) return data;
     if (this._encryptionAlgo === EncryptionAlgo.CAMELLIA) return data;
-    if (this._encryptionAlgo === EncryptionAlgo.DES) return data;
     if (this._encryptionAlgo === EncryptionAlgo.GOST) return data;
     if (this._encryptionAlgo === EncryptionAlgo.IDEA) return data;
     if (this._encryptionAlgo === EncryptionAlgo.KASUMI) return data;
