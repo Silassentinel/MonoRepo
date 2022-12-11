@@ -7,8 +7,6 @@ const main = async () => {
   const osFlavor = os.type();
 
   // if os is windows run script/win.ps1 or script/win.bat if no powershell is present
-  // if os is linux run script/linux.sh
-  // if os is mac run script/mac.sh
 
   // if os is windows
   if (osFlavor === 'Windows_NT') {
@@ -23,11 +21,13 @@ const main = async () => {
   // if os is linux
   if (osFlavor === 'Linux') {
     // run script/linux.sh
+    console.log('pinguin');
   }
 
   // if os is mac
   if (osFlavor === 'Darwin') {
     // run script/mac.sh
+    console.log('mac');
   }
 };
 

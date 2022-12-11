@@ -2,6 +2,13 @@
 - investigate nextjs to compare server side rendering with vite.
 - https://stackoverflow.blog/2022/11/16/biometric-authentication-for-web-devs/
     - https://webauthn.guide/
+- investigate to publish packages to individual containers in docker hub
+    - autobuilt yaml file for each package
+    - & run the container
+- investigate how to autoscale the docker containers
+    - how to determine if an increase is neede
+    - how to determine if a decrease is needed
+     
 ## remod:
 - make shared libs for components to use for serveral frontend apps 
     @Silassentinel/frontEndLib

@@ -1,5 +1,5 @@
 {
-  "name": "@silassentinel/docsgenerator",
+  "name": "@silassentinel/notifier",
   "private": true,
   "version": "1.0.0",
   "description": "This will send notifications",
