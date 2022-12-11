@@ -46,7 +46,7 @@ const Run = async () => {
 
   // eslint-disable-next-line no-console
   app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+    console.log(`Server is running on https://localhost:${port}`);
   });
 };
 

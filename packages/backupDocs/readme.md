@@ -1,0 +1,1 @@
+will collect all generated docs from DocsGenerator and check it into the doc branch
