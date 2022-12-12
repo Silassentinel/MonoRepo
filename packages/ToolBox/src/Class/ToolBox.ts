@@ -68,7 +68,7 @@ class ToolBox {
   // #region react helper methods
 
   /**
-   * this function will convert json to a blog
+   * This function will convert json to a blog.
    * @param jsonFile the json file to convert
    * @returns the new blog
    */
