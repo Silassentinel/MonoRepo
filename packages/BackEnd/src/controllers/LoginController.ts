@@ -41,6 +41,9 @@ class LoginController {
           // eslint-disable-next-line no-console
           console.log(`error: ${error}`);
           response.send(error.message);
+
+          azeazd
+          zaeazd
         });
     });
   };
