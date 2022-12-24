@@ -24,13 +24,14 @@ const main = async () => {
   console.log(`OS: ${os}`);
   console.log('*********************************');
 
-  helper.getGitPath();
+  // helper.getGitPath();
   const exec = await import('child_process').then((m) => m.exec);
 
+  // if os is windows run script/win.ps1 or script/win.bat if no powershell is present
   if (os === 'windows') {
     try {
       const { stdout, stderr } = await exec('powershell.exe -version');
-      if (stderr) {
+      if (stderr?.errored) {
         // eslint-disable-next-line no-console
         console.error(stderr);
         throw new Error('Powershell not found');
@@ -42,11 +43,37 @@ const main = async () => {
     }
   }
 
-  // if os is windows run script/win.ps1 or script/win.bat if no powershell is present
-
-  // const os = helper.getOS();
   // if os is linux run script/linux.sh
+  if (os === 'linux') {
+    try {
+      const { stdout, stderr } = await exec('bash -version');
+      console.log('stderr: ', stderr);
+      if (stderr?.errored) {
+        // eslint-disable-next-line no-console
+        console.error(stderr);
+        throw new Error('Bash not found');
+      }
+      console.log(stdout);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+    }
+  }
   // if os is mac run script/mac.sh
+  if (os === 'mac') {
+    try {
+      const { stdout, stderr } = await exec('bash -version');
+      if (stderr?.errored) {
+        // eslint-disable-next-line no-console
+        console.error(stderr);
+        throw new Error('Bash not found');
+      }
+      console.log(stdout);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+    }
+  }
 };
 
 // eslint-disable-next-line no-console

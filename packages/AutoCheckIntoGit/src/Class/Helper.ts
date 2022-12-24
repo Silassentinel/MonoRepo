@@ -1,6 +1,3 @@
-import { resolve } from 'path';
-
-// temp file
 class Helper {
   // will check if git is installed
   static getGitPath = async () => {
@@ -19,10 +16,10 @@ class Helper {
   static getOS = async (): Promise<string> => {
     const os = await import('os');
     const osFlavor = os.type().toLowerCase();
-    if (osFlavor === 'Linux') return resolve('linux');
-    if (osFlavor === 'Darwin') return resolve('mac');
-    if (osFlavor === 'Windows_NT') return resolve('windows');
-    return resolve(osFlavor);
+    if (osFlavor === 'linux') return 'linux';
+    if (osFlavor === 'darwin') return 'mac';
+    if (osFlavor === 'windows_NT') return 'windows';
+    return osFlavor;
   };
 }
 
