@@ -3,16 +3,16 @@ import { ExecException, exec } from 'child_process';
 // #endregion
 
 class Helper {
-  // will check if git is installed
-  static getGitPath = async () => {
-    // run on cli git --version
-    // check cli output for something similar to git version
-    console.log('executing: git --version');
-    const { stdout, stderr } = await (await import('child_process')).exec('git --version');
-    stdout?.pipe(process.stdout);
-    console.log('stderr: ', stderr);
-    // if git is installed return path to git
-    return 'git';
+  /**
+   * This function will check if git is installed on the system, if it's installed it will return the version of git.
+   * @return {Promise<boolean>} A promise that resolve to true if git is installed, or false if not
+   */
+  static isGitInstalled = async () => {
+    const git = await Helper.execute('git --version');
+    if (!git) {
+      return false;
+    }
+    return true;
   };
 
   // check current os return name as string

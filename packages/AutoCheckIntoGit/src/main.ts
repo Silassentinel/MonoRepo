@@ -24,39 +24,41 @@ const main = async () => {
   console.log(`OS: ${os}`);
   console.log('*********************************');
 
-  // if os is windows run script/win.ps1 or script/win.bat if no powershell is present
-  if (os === 'windows') {
-    try {
-      const result = await helper.execute('powershell.exe -version');
-      console.error(result);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  // if os is linux run script/linux.sh
-  if (os === 'linux') {
-    try {
-      const curDirr = await helper.execute('pwd');
-      console.log(`current directory is: ${curDirr}`);
-      const projectRoot = process.env.ROOTDIR;
-      const result = await helper.execute(`cd ${projectRoot} && git status`) as string;
-      if (result.includes('modified')) {
-        await helper.execute(`cd ${projectRoot} && git add . && git commit -m "auto commit" && git push`);
+  if (await helper.isGitInstalled()) {
+    // if os is windows run script/win.ps1 or script/win.bat if no powershell is present
+    if (os === 'windows') {
+      try {
+        const result = await helper.execute('powershell.exe -version');
+        console.error(result);
+      } catch (error) {
+        console.error(error);
       }
-      console.log(result);
-    } catch (error) {
-      console.error(error);
     }
-  }
-  // if os is mac run script/mac.sh
-  if (os === 'mac') {
-    try {
-      const result = await helper.execute('bash -version');
-      console.error(result);
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
+
+    // if os is linux run script/linux.sh
+    if (os === 'linux') {
+      try {
+        const curDirr = await helper.execute('pwd');
+        console.log(`current directory is: ${curDirr}`);
+        const projectRoot = process.env.ROOTDIR;
+        const result = await helper.execute(`cd ${projectRoot} && git status`) as string;
+        if (result.includes('modified')) {
+          await helper.execute(`cd ${projectRoot} && git add . && git commit -m "auto commit ${Date.now}" && git push`);
+        }
+        console.log(result);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    // if os is mac run script/mac.sh
+    if (os === 'mac') {
+      try {
+        const result = await helper.execute('bash -version');
+        console.error(result);
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(error);
+      }
     }
   }
 };
