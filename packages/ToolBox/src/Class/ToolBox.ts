@@ -153,13 +153,12 @@ class ToolBox {
     });
 
   /**
-   * This function will run every 5 minutes. It takes a function as parameter and will execute it every 5 minutes.
-   * @param {Function} func The function to execute every 5 minutes.
+   * This function will run every 5 minutes.
+   * It takes a callbackfunction as parameter and will execute it every 5 minutes.
+   * The function parameter is optional and can be 0 or many parameters.
+   * @param {Callback} callback The function to execute every 5 minutes
    */
-  static runEveryFiveMinutes = (func: (p1?: string, p2?: string) => any) => {
-    setInterval(() => func, 300000);
-  };
-
+  // TODO
   // #endregion
 
   // #region react helper methods
