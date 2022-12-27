@@ -65,6 +65,24 @@ class ToolBox {
   static GetCurrentYear = () => new Date().getFullYear();
 
   /**
+   * This function will get the current month
+   * @returns the current month as a string
+   */
+  static GetCurrentMonth = () => new Date().toLocaleString('default', { month: 'long' });
+
+  /**
+   * This function will get the current day
+   * @returns the current day as a string
+   */
+  static GetCurrentDay = () => new Date().toLocaleString('default', { weekday: 'long' });
+
+  /**
+   * This function will get the current date
+   * @returns the current date as a string
+   */
+  static GetCurrentDate = () => new Date().toLocaleDateString('nl-BE');
+
+  /**
    * This function will check if git is installed on the system, if it's installed it will return the version of git.
    * @return {Promise<boolean>} A promise that resolve to true if git is installed, or false if not
    */
@@ -129,6 +147,7 @@ class ToolBox {
   static runEveryFiveMinutes = (func: (p1?: string, p2?: string) => any) => {
     setInterval(() => func, 300000);
   };
+
   // #endregion
 
   // #region react helper methods
