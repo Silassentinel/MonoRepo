@@ -21,6 +21,7 @@
 ------------------
 
 statusses:
+
 [![CodeQL](https://github.com/Silassentinel/MonoRepo/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/Silassentinel/MonoRepo/actions/workflows/codeql.yml)
 
 [![njsscan sarif](https://github.com/Silassentinel/MonoRepo/actions/workflows/njsscan.yml/badge.svg?branch=main)](https://github.com/Silassentinel/MonoRepo/actions/workflows/njsscan.yml)
