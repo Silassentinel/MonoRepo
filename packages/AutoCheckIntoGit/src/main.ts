@@ -19,17 +19,16 @@ const main = async () => {
   console.log(`Root directory: ${rootDir}`);
   // Check via helper which os is running
   const helper = await import('./Class/Helper').then((m) => m.default);
-  const os = await helper.getOS();
 
   console.log('*********************************');
-  console.log(`OS: ${os}`);
+  console.log(`OS: ${await helper.GetOS()}`);
   console.log('*********************************');
 
-  if (await helper.isGitInstalled()) {
+  if (await helper.IsGitInstalled()) {
     // if os is windows run script/win.ps1 or script/win.bat if no powershell is present
-    if (os === 'windows') {
+    if (await helper.GetOS() === 'windows') {
       try {
-        const result = await helper.execute('powershell.exe -version');
+        const result = await helper.Execute('powershell.exe -version');
         console.error(result);
       } catch (error) {
         console.error(error);
@@ -37,14 +36,14 @@ const main = async () => {
     }
 
     // if os is linux run script/linux.sh
-    if (os === 'linux') {
+    if (await helper.GetOS() === 'linux') {
       try {
         // const curDirr = await helper.execute('pwd');
         // console.log(`current directory is: ${curDirr}`);
         const projectRoot = process.env.ROOTDIR;
-        const result = await helper.execute(`cd ${projectRoot} && git status`) as string;
+        const result = await helper.Execute(`cd ${projectRoot} && git status`) as string;
         if (result.includes('modified')) {
-          await helper.execute(`cd ${projectRoot} && git add . && git commit -m "auto commit ${Date.now().toLocaleString('nl-Be')}" && git push`);
+          await helper.Execute(`cd ${projectRoot} && git add . && git commit -m "auto commit ${Date.now().toLocaleString('nl-Be')}" && git push`);
         }
         console.log(result);
       } catch (error) {
@@ -52,9 +51,9 @@ const main = async () => {
       }
     }
     // if os is mac run script/mac.sh
-    if (os === 'mac') {
+    if (await helper.GetOS() === 'mac') {
       try {
-        const result = await helper.execute('bash -version');
+        const result = await helper.Execute('bash -version');
         console.error(result);
       } catch (error) {
         // eslint-disable-next-line no-console

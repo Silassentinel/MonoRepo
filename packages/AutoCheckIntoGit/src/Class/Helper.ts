@@ -7,16 +7,19 @@ class Helper {
    * This function will check if git is installed on the system, if it's installed it will return the version of git.
    * @return {Promise<boolean>} A promise that resolve to true if git is installed, or false if not
    */
-  static isGitInstalled = async () => {
-    const git = await Helper.execute('git --version');
+  static IsGitInstalled = async () => {
+    const git = await Helper.Execute('git --version');
     if (!git) {
       return false;
     }
     return true;
   };
 
-  // check current os return name as string
-  static getOS = async (): Promise<string> => {
+  /**
+   * This function will check which os is running.
+   * @returns {Promise<string>} A promise that resolve to the os type
+   */
+  static GetOS = async (): Promise<string> => {
     const os = await import('os');
     const osFlavor = os.type().toLowerCase();
     if (osFlavor === 'linux') return 'linux';
@@ -30,7 +33,7 @@ class Helper {
  * @return {Promise<string>} A promise that resolve to the output of the shell command, or an error
  * @example const output = await execute("ls -alh");
  */
-  static execute = (command: string) =>
+  static Execute = (command: string) =>
     /**
      * @param {Function} resolve A function to call when the shell command is executed successfully
      * @param {Function} reject A function to call when the shell command is executed with an error
@@ -57,6 +60,14 @@ class Helper {
         resolve(standardOutput);
       });
     });
+
+  /**
+   * This function will run every 5 minutes. It takes a function as parameter and will execute it every 5 minutes.
+   * @param {Function} func The function to execute every 5 minutes.
+   */
+  static runEveryFiveMinutes = (func: (p1?: string, p2?: string) => any) => {
+      setInterval(() => func, 300000);
+  };
 }
 
 export default Helper;
