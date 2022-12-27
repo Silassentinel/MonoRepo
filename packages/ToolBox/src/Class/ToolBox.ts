@@ -108,6 +108,18 @@ class ToolBox {
   };
 
   /**
+   * This function will return the hostname of the system.
+   * @returns {Promise<string>} A promise that resolve to the hostname
+   */
+  static GetHostname = async (): Promise<string> => await ToolBox.Execute('hostname') as string;
+
+  /**
+   * This function will return the result of whoami.
+   * @returns {Promise<string>} A promise that resolve to the result of whoami.
+   */
+  static GetWhoami = async (): Promise<string> => await ToolBox.Execute('whoami') as string;
+
+  /**
  * @param {string} command A shell command to execute
  * @return {Promise<string>} A promise that resolve to the output of the shell command, or an error
  * @example const output = await execute("ls -alh");

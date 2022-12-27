@@ -43,7 +43,7 @@ const main = async () => {
         const projectRoot = process.env.ROOTDIR;
         const result = await ToolBox.Execute(`cd ${projectRoot} && git status`) as string;
         if (result.includes('modified')) {
-          await ToolBox.Execute(`cd ${projectRoot} && git add . && git commit -m "auto commit ${ToolBox.GetCurrentDate()}" && git push`);
+          await ToolBox.Execute(`cd ${projectRoot} && git add . && git commit -m "AC from ${ToolBox.GetHostname()} by ${ToolBox.GetWhoami()} ${ToolBox.GetCurrentDate()}" && git push`);
         }
         console.log(result);
       } catch (error) {
