@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 
@@ -43,7 +44,7 @@ const main = async () => {
         const projectRoot = process.env.ROOTDIR;
         const result = await helper.execute(`cd ${projectRoot} && git status`) as string;
         if (result.includes('modified')) {
-          await helper.execute(`cd ${projectRoot} && git add . && git commit -m "auto commit ${Date.now}" && git push`);
+          await helper.execute(`cd ${projectRoot} && git add . && git commit -m "auto commit ${Date.now()}" && git push`);
         }
         console.log(result);
       } catch (error) {
