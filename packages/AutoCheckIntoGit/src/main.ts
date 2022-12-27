@@ -39,8 +39,8 @@ const main = async () => {
     // if os is linux run script/linux.sh
     if (os === 'linux') {
       try {
-        const curDirr = await helper.execute('pwd');
-        console.log(`current directory is: ${curDirr}`);
+        // const curDirr = await helper.execute('pwd');
+        // console.log(`current directory is: ${curDirr}`);
         const projectRoot = process.env.ROOTDIR;
         const result = await helper.execute(`cd ${projectRoot} && git status`) as string;
         if (result.includes('modified')) {
