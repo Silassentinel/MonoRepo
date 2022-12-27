@@ -10,8 +10,6 @@
     - how to determine if a decrease is needed
 - setup branch for every package
 - find how to automatically copy a commit to a branch based on the package name in the commit
-
-     
 ## remod:
 - make shared libs for components to use for serveral frontend apps 
     @Silassentinel/frontEndLib
