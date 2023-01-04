@@ -5,6 +5,9 @@ import Blog from '@silassentinel/frontendlib/src/types/Blog';
 // #region imports
 import { Hash } from 'crypto';
 import { v4 as UUIDV4, V4Options } from 'uuid';
+import axios from 'axios';
+import { writeFile } from 'fs';
+import { readFile } from 'fs/promises';
 import ToolBoxError from '../utilities/Errors/ToolBoxError';
 // #endregion
 
@@ -63,6 +66,72 @@ class ToolBox {
    * @returns the current year
    */
   static GetCurrentYear = () => new Date().getFullYear();
+
+  /**
+   * This function will return the domain name of a website
+   * @param {string} url the url to get the domain name from
+   * @returns {string} the domain name
+   */
+  // eslint-disable-next-line max-len
+  static GetDomainName = (url: string) => url.replace('https://', '').replace('http://', '').replace('www.', '').split(/[/?#]/)[0];
+
+  /**
+   * This function will read a local html file and return an array of strings containing all links in the file.
+   * @param {string} filePath the file to read.
+   * @returns {string[]} array of links
+   */
+  static GetLinksFromHtmlFile = async (filePath: string): Promise<string[]> => {
+    // #region sanitize file path
+    const sanitizedFilePath = ToolBox.SanitizeFilePath(filePath);
+    if (sanitizedFilePath instanceof ToolBoxError) throw sanitizedFilePath;
+    // #endregion
+    // #region read file
+    const file = await readFile(filePath, 'utf8');
+    // #endregion
+    // #region get links
+    const links = file.match(/href="([^"]*)"/g);
+    // #endregion
+    // #region return links
+    return links as string[];
+    // #endregion
+  };
+
+  /**
+   * This function will download an HTML file via Axios GET request.
+   * @param {string} url the url to download the file from
+   * @param {string} folder where to save the file
+   */
+  static DownloadWebPage = async (url: string, folder: string) => {
+    // #region sanitize url
+    const sanitizedUrl = ToolBox.SanitizeFilePath(url);
+    if (sanitizedUrl instanceof ToolBoxError) throw sanitizedUrl;
+    const sanitizedFolder = ToolBox.SanitizeFilePath(folder);
+    if (sanitizedFolder instanceof ToolBoxError) throw sanitizedFolder;
+    // #endregion
+    // #region request webpage
+    const response = await axios.get(url);
+    const { data } = response;
+    // #endregion
+    // #region write file
+    const domain = ToolBox.GetDomainName(url);
+    try {
+      writeFile(`${folder}/${domain}.html`, data, (err) => {
+        if (err) throw err;
+      });
+    } catch (error) {
+      console.error(error);
+    }
+    // #endregion
+  };
+
+  /**
+   * This function takes any function as a parameter and executes it every 5 minutes.
+   * @param {Function} function the function to execute.
+   */
+  static ExecuteEveryFiveMinutes = (func: (() => void)) => {
+    setInterval(() => func, 300000);
+  };
+
   // #endregion
 
   // #region react helper methods

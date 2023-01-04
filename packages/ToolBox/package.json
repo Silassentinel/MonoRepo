@@ -24,11 +24,11 @@
   "author": "silassentinel",
   "license": "ISC",
   "dependencies": {
+    "@silassentinel/frontendlib": "file:../frontendlib",
+    "axios": "^1.2.2",
     "dotenv": "^16.0.2",
     "tslib": "^2.4.0",
-    "uuid": "^9.0.0",
-    "@silassentinel/toolbox": "file:../frontendlib",
-    "@silassentinel/frontendlib" : "file:../frontendlib"
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/chai": "^4.3.1",
