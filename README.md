@@ -1,4 +1,6 @@
 # todo:
+- find how to publish individual packages
+- find how to pack entire monorepo
 - investigate nextjs to compare server side rendering with vite.
 - https://stackoverflow.blog/2022/11/16/biometric-authentication-for-web-devs/
     - https://webauthn.guide/
@@ -10,13 +12,20 @@
     - how to determine if a decrease is needed
 - setup branch for every package
 - find how to automatically copy a commit to a branch based on the package name in the commit
-
-     
-## remod:
+# remod:
 - make shared libs for components to use for serveral frontend apps 
     @Silassentinel/frontEndLib
     @Silassentinel/frontEndLib/Components
     @Silassentinel/frontEndLib/Components/etc
+
+------------------
+
+statusses:
+
+[![CodeQL](https://github.com/Silassentinel/MonoRepo/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/Silassentinel/MonoRepo/actions/workflows/codeql.yml)
+
+[![njsscan sarif](https://github.com/Silassentinel/MonoRepo/actions/workflows/njsscan.yml/badge.svg?branch=main)](https://github.com/Silassentinel/MonoRepo/actions/workflows/njsscan.yml)
+
 
 ------------------
 
@@ -48,3 +57,5 @@ Prerequisite:
 
 # Contribute
 To contribute to the project, you can fork the project and make a pull request.
+
+# License

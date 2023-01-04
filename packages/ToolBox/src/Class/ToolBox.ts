@@ -2,15 +2,15 @@
 import Client from '@silassentinel/frontendlib/src/types/Client';
 import Job from '@silassentinel/frontendlib/src/types/Job';
 import Blog from '@silassentinel/frontendlib/src/types/Blog';
+// #endregion
 // #region imports
 import { Hash } from 'crypto';
 import { v4 as UUIDV4, V4Options } from 'uuid';
 import axios from 'axios';
 import { writeFile } from 'fs';
 import { readFile } from 'fs/promises';
+import { ExecException, exec } from 'node:child_process';
 import ToolBoxError from '../utilities/Errors/ToolBoxError';
-// #endregion
-
 // #endregion
 
 class ToolBox {
@@ -132,6 +132,93 @@ class ToolBox {
     setInterval(() => func, 300000);
   };
 
+  /**
+   * This function will get the current month
+   * @returns the current month as a string
+   */
+  static GetCurrentMonth = () => new Date().toLocaleString('default', { month: 'long' });
+
+  /**
+   * This function will get the current day
+   * @returns the current day as a string
+   */
+  static GetCurrentDay = () => new Date().toLocaleString('default', { weekday: 'long' });
+
+  /**
+   * This function will get the current date
+   * @returns the current date as a string
+   */
+  static GetCurrentDate = () => new Date().toLocaleDateString('nl-BE');
+
+  /**
+   * This function will check if git is installed on the system, if it's installed it will return the version of git.
+   * @return {Promise<boolean>} A promise that resolve to true if git is installed, or false if not
+   */
+  static IsGitInstalled = async () => {
+    const git = await ToolBox.Execute('git --version');
+    if (!git) {
+      return false;
+    }
+    return true;
+  };
+
+  /**
+   * This function will check which os is running.
+   * @returns {Promise<string>} A promise that resolve to the os type
+   */
+  static GetOS = async (): Promise<string> => {
+    const os = await import('os');
+    const osFlavor = os.type().toLowerCase();
+    if (osFlavor === 'linux') return 'linux';
+    if (osFlavor === 'darwin') return 'mac';
+    if (osFlavor === 'windows_NT') return 'windows';
+    return osFlavor;
+  };
+
+  /**
+   * This function will return the hostname of the system.
+   * @returns {Promise<string>} A promise that resolve to the hostname
+   */
+  static GetHostname = async (): Promise<string> => await ToolBox.Execute('hostname') as string;
+
+  /**
+   * This function will return the result of whoami.
+   * @returns {Promise<string>} A promise that resolve to the result of whoami.
+   */
+  static GetWhoami = async (): Promise<string> => await ToolBox.Execute('whoami') as string;
+
+  /**
+ * @param {string} command A shell command to execute
+ * @return {Promise<string>} A promise that resolve to the output of the shell command, or an error
+ * @example const output = await execute("ls -alh");
+ */
+  static Execute = (command: string) =>
+    /**
+     * @param {Function} resolve A function to call when the shell command is executed successfully
+     * @param {Function} reject A function to call when the shell command is executed with an error
+     * @return {Promise<string>} A promise that resolve to the output of the shell command, or an error
+     * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+     */
+    // eslint-disable-next-line implicit-arrow-linebreak
+    new Promise((resolve, reject) => {
+    /**
+     * @param {Error} error An error triggered during the execution of the childProcess.exec command
+     * @param {string|Buffer} standardOutput The result of the shell command execution
+     * @param {string|Buffer} standardError The error resulting of the shell command execution
+     * @see https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback
+     */
+      exec(command, (error : ExecException | null, standardOutput : string, standardError: string) => {
+        if (error) {
+          reject();
+          return;
+        }
+        if (standardError) {
+          reject(standardError);
+          return;
+        }
+        resolve(standardOutput);
+      });
+    });
   // #endregion
 
   // #region react helper methods
