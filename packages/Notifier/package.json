@@ -24,10 +24,13 @@
   "author": "silassentinel",
   "license": "ISC",
   "dependencies": {
+    "@types/nodemailer": "^6.4.7",
     "axios": "^1.1.3",
     "body-parser": "^1.20.0",
     "dotenv": "^16.0.2",
-    "tslib": "^2.4.0"
+    "nodemailer": "^6.8.0",
+    "tslib": "^2.4.0",
+    "@silassentinel/toolbox": "file:../toolbox"
   },
   "devDependencies": {
     "@types/chai": "^4.3.1",
