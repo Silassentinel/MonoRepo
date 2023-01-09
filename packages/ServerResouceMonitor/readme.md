@@ -1,1 +1,1 @@
-Will check the current server stats & reports via notifier
+Will check the current server stats & reports via notifier &|| logger

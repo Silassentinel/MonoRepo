@@ -12,6 +12,7 @@
     - how to determine if a decrease is needed
 - setup branch for every package
 - find how to automatically copy a commit to a branch based on the package name in the commit
+- add encrypt files before adding to git
 # remod:
 - make shared libs for components to use for serveral frontend apps 
     @Silassentinel/frontEndLib
@@ -59,3 +60,5 @@ Prerequisite:
 To contribute to the project, you can fork the project and make a pull request.
 
 # License
+This project is licensed under the MIT License - see the LICENSE.md file for details
+
