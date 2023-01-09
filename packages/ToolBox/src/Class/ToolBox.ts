@@ -15,20 +15,53 @@ import ToolBoxError from '../utilities/Errors/ToolBoxError';
 
 class ToolBox {
   // #region static methods
+  // #region Sanitization
+
+  /**
+   * Santizes url
+   * @param url {string} url to sanitize
+   * @returns {string} sanitized url
+   */
+  static SanitizeUrl = (url: string): string => {
+    if (!url) throw new ToolBoxError('Url is required');
+    return url.replace(/[^a-zA-Z0-9]/g, '');
+  };
+
+  /**
+   * Sanitize emailaddress to remove any special characters.
+   * @param email {string} email address to sanitize
+   */
+  static SanitizeEmail = (email: string): string => email.replace(/[^a-zA-Z0-9@.]/g, '');
+
+  /**
+   * Sanitize Subject t
+   */
+
+  /**
+   * Sanitize Body
+   */
+
+  // #endregion
+
+  // #region String
   /**
    * This function will be used to check if the given string is empty.
    * @param str string to check
    * @returns {boolean} true if string is empty
    */
   static IsStringEmpty = (str: string): boolean => str.length === 0;
+  // #endregion
 
+  // #region object
   /**
    * This will check if the given object is undefined or null.
    * @param obj object to check
    * @returns {boolean} true if object is undefined or null
    */
   static IsNullOrUndefined = (obj: unknown): boolean => obj === undefined || obj === null;
+  // #endregion
 
+  // #region Dictionary
   /**
     * Helper function to get all the keys of an object.
     * @param data {Record<String,String>} object to get keys from
@@ -42,7 +75,9 @@ class ToolBox {
     * @returns {string[]} array of values
     */
   static GetValues = (data: Record<string, string>): string[] => Object.values(data);
+  // #endregion
 
+  // #region ApiKeys
   /**
    * This function will create an apî key for the given user.
    * @param user {string} user to create api key for
@@ -60,12 +95,53 @@ class ToolBox {
       msecs: new Date('2011-11-01').getTime(),
     } as V4Options);
   };
+  // #endregion
 
+  // #region Date time
   /**
    * This function will get the current year
    * @returns the current year
    */
   static GetCurrentYear = () => new Date().getFullYear();
+
+  /**
+   * This function will get the current month
+   * @returns the current month as a string
+   */
+  static GetCurrentMonth = () => new Date().toLocaleString('default', { month: 'long' });
+
+  /**
+     * This function will get the current day
+     * @returns the current day as a string
+     */
+  static GetCurrentDay = () => new Date().toLocaleString('default', { weekday: 'long' });
+
+  /**
+     * This function will get the current date
+     * @returns the current date as a string
+     */
+  static GetCurrentDate = () => new Date().toLocaleDateString('nl-BE');
+  // #endregion
+
+  // #region Web interactions
+
+  /**
+   * This function will check URL with an online service to verify if it's flagged as malicious or malware
+   * @param {string} url the url to check
+   * @returns {boolean} true if url is flagged as malicious or malware
+   */
+  static CheckUrl = async (url: string): Promise<boolean> => {
+    // #region sanitize url
+    const sanitizedUrl: any = ToolBox.SanitizeUrl(url);
+    if (sanitizedUrl instanceof ToolBoxError) throw sanitizedUrl;
+    // #endregion
+    // #region check url
+    const response = await axios.get(`https://www.virustotal.com/vtapi/v2/url/report?apikey=${process.env.VIRUSTOTAL_API_KEY}&resource=${sanitizedUrl}`);
+    if (response.data.response_code === 0) throw new ToolBoxError('URL not found');
+    if (response.data.positives > 0) return true;
+    return false;
+    // #endregion
+  };
 
   /**
    * This function will return the domain name of a website
@@ -123,7 +199,9 @@ class ToolBox {
     }
     // #endregion
   };
+  // #endregion
 
+  // #region TimeExection
   /**
    * This function takes any function as a parameter and executes it every 5 minutes.
    * @param {Function} function the function to execute.
@@ -132,24 +210,9 @@ class ToolBox {
     setInterval(() => func, 300000);
   };
 
-  /**
-   * This function will get the current month
-   * @returns the current month as a string
-   */
-  static GetCurrentMonth = () => new Date().toLocaleString('default', { month: 'long' });
+  // #endregion
 
-  /**
-   * This function will get the current day
-   * @returns the current day as a string
-   */
-  static GetCurrentDay = () => new Date().toLocaleString('default', { weekday: 'long' });
-
-  /**
-   * This function will get the current date
-   * @returns the current date as a string
-   */
-  static GetCurrentDate = () => new Date().toLocaleDateString('nl-BE');
-
+  // #region File system
   /**
    * This function will check if git is installed on the system, if it's installed it will return the version of git.
    * @return {Promise<boolean>} A promise that resolve to true if git is installed, or false if not
@@ -187,6 +250,9 @@ class ToolBox {
    */
   static GetWhoami = async (): Promise<string> => await ToolBox.Execute('whoami') as string;
 
+  // #endregion
+
+  // #region Shell
   /**
  * @param {string} command A shell command to execute
  * @return {Promise<string>} A promise that resolve to the output of the shell command, or an error
@@ -219,6 +285,7 @@ class ToolBox {
         resolve(standardOutput);
       });
     });
+  // #endregion
   // #endregion
 
   // #region react helper methods
