@@ -132,8 +132,8 @@ class ToolBox {
    */
   static CheckUrl = async (url: string): Promise<boolean> => {
     // #region sanitize url
-    const sanitizedUrl: any = ToolBox.SanitizeUrl(url);
-    if (sanitizedUrl instanceof ToolBoxError) throw sanitizedUrl;
+    const sanitizedUrl = ToolBox.SanitizeUrl(url);
+    if (sanitizedUrl as unknown instanceof ToolBoxError) throw sanitizedUrl;
     // #endregion
     // #region check url
     const response = await axios.get(`https://www.virustotal.com/vtapi/v2/url/report?apikey=${process.env.VIRUSTOTAL_API_KEY}&resource=${sanitizedUrl}`);
@@ -213,6 +213,21 @@ class ToolBox {
   // #endregion
 
   // #region File system
+  /**
+   * this function will read a json file and return the filecontent
+   * @param {string} filePath the path to the file
+   * @returns {Promise<string>} the file content
+   */
+  static ReadJsonFile = async (filePath: string): Promise<string | ToolBoxError> => {
+    // #region sanitize file path
+    const sanitizedFilePath = ToolBox.SanitizeFilePath(filePath);
+    if (sanitizedFilePath instanceof ToolBoxError) throw sanitizedFilePath;
+    // #endregion
+    // #region read file
+    return readFile(filePath, 'utf8');
+    // #endregion
+  };
+
   /**
    * This function will check if git is installed on the system, if it's installed it will return the version of git.
    * @return {Promise<boolean>} A promise that resolve to true if git is installed, or false if not
