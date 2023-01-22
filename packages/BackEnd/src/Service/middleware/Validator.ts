@@ -4,7 +4,7 @@
 // #region imports
 import { Request, Response, NextFunction } from 'express';
 import { validationResult } from 'express-validator';
-import RequestValidationError from '../Utilities/Errors/RequestValidationError';
+import RequestValidationError from '../../Utilities/Errors/RequestValidationError';
 // #endregion
 
 class Validator {
