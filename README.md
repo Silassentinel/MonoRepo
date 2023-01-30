@@ -15,6 +15,7 @@
 - add encrypt files before adding to git
 # remod:
 - make shared libs for components to use for serveral frontend apps 
+  - https://www.youtube.com/watch?v=hf6Z8OZanec storybook to convert FEL to a library
     @Silassentinel/frontEndLib
     @Silassentinel/frontEndLib/Components
     @Silassentinel/frontEndLib/Components/etc

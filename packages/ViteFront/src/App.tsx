@@ -5,8 +5,8 @@
 import {
   BrowserRouter as Router, Route, Routes,
 } from 'react-router-dom';
-import Header from '@silassentinel/frontendlib/src/components/header/Header';
-import Footer from '@silassentinel/frontendlib/src/components/footer/Footer';
+import Header from '../../frontendlib/src/components/header/Header';
+import Footer from '../..Footer/frontendlib/src/components/footer/Footer';
 // #endregion
 // #region views
 import About from './views/About';

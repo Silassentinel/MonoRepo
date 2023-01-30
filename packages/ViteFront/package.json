@@ -13,7 +13,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@silassentinel/frontendlib": "file:../toolbox",
+    "@silassentinel/frontendlib": "file:../frontendlib",
     "@silassentinel/toolbox": "file:../toolbox",
     "bootstrap": "^5.2.2",
     "react": "^18.2.0",
