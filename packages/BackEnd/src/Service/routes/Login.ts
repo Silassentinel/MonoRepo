@@ -2,7 +2,7 @@
 import express from 'express';
 import bodyparser from 'body-parser';
 import { header } from 'express-validator';
-import LoginController from '../controllers/LoginController';
+import LoginController from '../../controllers/LoginController';
 import CustomSanitizers from '../middleware/CustomSaniters';
 // #endregion
 // #region preconfig

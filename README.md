@@ -1,18 +1,19 @@
 # todo:
-- find how to publish individual packages
-- find how to pack entire monorepo
+- check nestjs for rebuild https://docs.nestjs.com/controllers
+- add encrypt files before adding to git
 - investigate nextjs to compare server side rendering with vite.
 - https://stackoverflow.blog/2022/11/16/biometric-authentication-for-web-devs/
     - https://webauthn.guide/
 - investigate to publish packages to individual containers in docker hub
     - autobuilt yaml file for each package
     - & run the container
+- setup branch for every package
+- find how to automatically copy a commit to a branch based on the package name in the commit
+- find how to pack entire monorepo
+- find how to publish individual packages
 - investigate how to autoscale the docker containers
     - how to determine if an increase is neede
     - how to determine if a decrease is needed
-- setup branch for every package
-- find how to automatically copy a commit to a branch based on the package name in the commit
-- add encrypt files before adding to git
 # remod:
 - make shared libs for components to use for serveral frontend apps 
   - https://www.youtube.com/watch?v=hf6Z8OZanec storybook to convert FEL to a library

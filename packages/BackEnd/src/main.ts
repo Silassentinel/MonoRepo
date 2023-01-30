@@ -1,7 +1,7 @@
 // this is the entry point of the BackEnd server.
 
 // #region imports
-import Run from './server/Server';
+import Run from './Service/server/Server';
 // #endregion
 
 const Main = async () => {

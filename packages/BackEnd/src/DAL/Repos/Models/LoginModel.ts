@@ -1,7 +1,7 @@
 // Model sits on top of the entity and defines the shape of the data that is sent to the server from the db
 // #region imports
 import { Hash } from 'crypto';
-import LoginResponse from '../types/LoginResponse';
+import LoginResponse from '../../../BLL/Models/types/LoginResponse';
 // import pool from '../DBConfig/Config';
 // #endregion
 
