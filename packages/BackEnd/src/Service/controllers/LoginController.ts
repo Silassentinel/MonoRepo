@@ -2,9 +2,9 @@
 import bcrypt from 'bcrypt';
 import { ValidationError, validationResult } from 'express-validator';
 import { Request, Response } from 'express';
-import User from '../BLL/Models/classes/User';
-import LoginModel from '../DAL/Repos/Models/LoginModel';
-import LoginResponse from '../BLL/Models/types/LoginResponse';
+import User from '../../BLL/Models/classes/User';
+import LoginModel from '../../DAL/Repos/Models/LoginModel';
+import LoginResponse from '../../BLL/Models/types/LoginResponse';
 // #endregion.
 /**
  * This class will contain all the logic to control the login

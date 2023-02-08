@@ -25,7 +25,10 @@ class Validator {
       res
         .status(400)
         .send({ body: 'An error occured' });
-      throw new RequestValidationError(errors.array());
+      throw new RequestValidationError({
+        message: 'errors.array()',
+        field: undefined,
+      } as Array); // TODO check ho to convert the array to string
     }
 
     // if there is no error then call the next middleware

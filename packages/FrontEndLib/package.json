@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@silassentinel/toolbox" : "file:../toolbox",
+    "@silassentinel/toolbox" : "file:../toolbox"
   },
   "peerDependencies": {
     "react": "^18.2.0",
