@@ -25,10 +25,10 @@ class Validator {
       res
         .status(400)
         .send({ body: 'An error occured' });
-      throw new RequestValidationError({
-        message: 'errors.array()',
+      throw new RequestValidationError([{
+        message: errors.array().join('-'),
         field: undefined,
-      } as Array); // TODO check ho to convert the array to string
+      }]); // TODO check ho to convert the array to string
     }
 
     // if there is no error then call the next middleware
@@ -43,7 +43,7 @@ class Validator {
 
     // if there is an error then throw the RequestValidationError
     if (!errors.isEmpty()) {
-      throw new RequestValidationError({ message: errors.array().join('-'), field: 'body' });
+      throw new RequestValidationError([{ message: errors.array().join('-'), field: 'body' }]);
     }
 
     // if there is no error then call the next middleware

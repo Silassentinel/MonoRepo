@@ -11,7 +11,7 @@ const jsonParser = bodyparser.json();
 // #endregion
 
 // #region GET
-router.get('/Login', LoginController.Check);
+router.get('/Login', LoginController.Check); // should return login page (REACT component holding the login page)
 // #endregion
 // #region POST
 router.post('/Login', [jsonParser,

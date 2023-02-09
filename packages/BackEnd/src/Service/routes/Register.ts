@@ -7,20 +7,21 @@ import express from 'express';
 // #endregion
 // #region preconfig
 const router = express.Router();
-// const jsonParser = bodyparser.json();
+const jsonParser = bodyparser.json();
 // #endregion
 
 // #region GET
-router.route('').get();
+router.get('Register',[]); // should return register page (REACT component holding the register page)
 // #endregion
 // #region POST
-router.route('').post();
+router.route('').post(); // should handle the register request
 // #endregion
 // #region PUT
-router.route('').put();
+router.route('').put(); // If sent in a timely manner (within X ms) then update the previous request
+// be sure to check if the request originated from the same IP
 // #endregion
 // #region DELETE
-router.route('').delete();
+router.route('').delete(); // obsolete
 // #endregion
 
 export default router;
