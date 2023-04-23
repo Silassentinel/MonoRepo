@@ -1,5 +1,16 @@
-# About the code
-explain here what the project is about.
+# About
+This project is a tool to generate documentation for UiPath projects. 
+
+flow: 
+read in the xaml
+parse xaml to jsonObject
+loop over object keys,values
+replace placeholders in html template with values from jsonObject
+write html to disk & name as xaml file
+
+**disclaimer:**
+It is a work in progress and is not yet ready for production use.
+
 # Getting Started
 Follow the steps below to install the project locally.
 Prerequisite:
