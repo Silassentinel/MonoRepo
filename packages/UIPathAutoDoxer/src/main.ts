@@ -3,6 +3,7 @@
 // # region imports
 // import * as yargs from 'yargs';
 import XmlParser from './Class/XMlParser';
+import TemplateBuilder from './Class/TemplateBuilder';
 // # endregion
 // # region config
 // # endregion
@@ -16,6 +17,11 @@ const main = async (/* args?: yargs.Arguments */) => {
   const xmlParser = new XmlParser(filePath);
   const result = await xmlParser.parse();
   log(result);
+  const templateBuilder = new TemplateBuilder();
+  await templateBuilder.CollectTemplates();
+  const { _templates } = templateBuilder;
+  log(_templates);
+  log('fin.');
 };
 
 // eslint-disable-next-line no-console
