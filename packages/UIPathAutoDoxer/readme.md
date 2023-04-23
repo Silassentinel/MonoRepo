@@ -8,6 +8,37 @@ loop over object keys,values
 replace placeholders in html template with values from jsonObject
 write html to disk & name as xaml file
 
+
+# htmlStructure
+- TemplateHtml.html
+    - header
+    - body
+        - Actvity
+            - ActivityTitle
+            - Table
+                - HeaderRow
+                    - HeaderCell: activityName
+                    - HeaderCell: activityType
+                - BodyRow
+                    - BodyCell: activityName
+                    - BodyCell: activityType
+            - Activity Comments
+        - Arguments
+            - ArgumentTitle
+            - ArgumentTable
+                - HeaderRow
+                    - HeaderCell: argumentName
+                    - HeaderCell: argumentType
+                    - HeaderCell: argumentDirection
+                    - HeaderCell: argumentDescription
+                - BodyRow
+                    - BodyCell: argumentName
+                    - BodyCell: argumentType
+                    - BodyCell: argumentDirection
+                    - BodyCell: argumentDescription
+        - Imports
+            - ImportTitle
+            - ImportList
 **disclaimer:**
 It is a work in progress and is not yet ready for production use.
 
