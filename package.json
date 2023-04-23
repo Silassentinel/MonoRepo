@@ -23,6 +23,7 @@
         "./packages/Translator",
         "./packages/Testing",
         "./packages/TS_TDD22Temp",
+        "./packages/UIPathAutoDoxer",
         "./packages/ViteFront"
     ],
     "devDependencies": {
