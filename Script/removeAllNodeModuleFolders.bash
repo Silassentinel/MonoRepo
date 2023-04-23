@@ -8,11 +8,11 @@ echo "Removing all node_modules in the subfolders of packages"
 
 cd ./packages
 
-SET $projectfolders = ls -d */*
-SET $projectsubfolders
+ls -d * | $projectfolders
+
 for $folder in $folprojectders
-    SET $projectSubfolders ls -d $folder
-    for $subfolder in $subfolders
+    ls -d $folder/* | $projectSubfolders 
+    for $subfolder in $projectSubfolders 
         echo "Checking $subfolder"
 
 ####################################################################################
