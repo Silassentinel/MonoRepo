@@ -7,9 +7,10 @@ import Blog from '@silassentinel/frontendlib/src/types/Blog';
 import { Hash } from 'crypto';
 import { v4 as UUIDV4, V4Options } from 'uuid';
 import axios from 'axios';
-import { writeFile } from 'fs';
+import { readdir, writeFile } from 'fs';
 import { readFile } from 'fs/promises';
 import { ExecException, exec } from 'node:child_process';
+import { promisify } from 'util';
 import ToolBoxError from '../utilities/Errors/ToolBoxError';
 // #endregion
 
@@ -213,6 +214,11 @@ class ToolBox {
   // #endregion
 
   // #region File system
+  /**
+   * This function will return all subdirectories of a given directory
+   */
+  static GetSubDirectoriesAndContents = promisify(readdir);
+
   /**
    * this function will read a json file and return the filecontent
    * @param {string} filePath the path to the file

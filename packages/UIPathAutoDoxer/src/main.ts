@@ -15,12 +15,10 @@ const { log } = console;
 const main = async (/* args?: yargs.Arguments */) => {
   const filePath = '/home/silas/code/Git/Repos/Playground/packages/UIPathAutoDoxer/temp/getLatestExcel.xaml';
   const xmlParser = new XmlParser(filePath);
-  const result = await xmlParser.parse();
-  log(result);
+  const xmlAsObject = await xmlParser.parse();
+  log(xmlAsObject);
   const templateBuilder = new TemplateBuilder();
-  await templateBuilder.CollectTemplates();
-  const { _templates } = templateBuilder;
-  log(_templates);
+  log(templateBuilder);
   log('fin.');
 };
 

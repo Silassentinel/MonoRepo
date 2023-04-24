@@ -1,11 +1,11 @@
 /** fileName: string;
      * contents: string;
      */
-type TemplateDictionary = {
+type folderContentsDictionary = {
     /** fileName: string;
      * contents: string;
      */
     [key: string]: string;
 };
 
-export default TemplateDictionary;
+export default folderContentsDictionary;
