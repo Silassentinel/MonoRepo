@@ -3,7 +3,14 @@ import ToolBox from '@silassentinel/toolbox/src/Class/ToolBox';
 // #endregion
 
 class FileCollector {
-  files : Map< string, string[] > = new Map< string, string[] >();
+  files: Map<string, string[]> = new Map<string, string[]>();
+
+  /**
+   * This function will read files from a folder and return their paths as a string array.
+   */
+  CollectFiles = async (folderPath = './html/') => {
+    
+   }:
 
   /**
      * Collect all templates from the TemplateRootPath /html

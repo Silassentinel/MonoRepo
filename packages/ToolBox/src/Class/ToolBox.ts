@@ -15,6 +15,13 @@ import ToolBoxError from '../utilities/Errors/ToolBoxError';
 // #endregion
 
 class ToolBox {
+  // #region private helper functions
+  /**
+   * Promisified read directory
+   */
+  private _readDir = promisify(readdir);
+  // #endregion
+
   // #region static methods
   // #region Sanitization
 
@@ -214,6 +221,25 @@ class ToolBox {
   // #endregion
 
   // #region File system
+
+  /**
+   * This function will return the path of the files in the given directory.
+   * @param {string} directory the directory to get the files from
+   * @returns {Promise<string[]>} an array of strings containing the path of the files.
+   */
+  static GetFilesInDirectory = async (directory: string): Promise<string[]> => {
+    // #region sanitize directory
+    const sanitizedDirectory = ToolBox.SanitizeFilePath(directory);
+    if (sanitizedDirectory instanceof ToolBoxError) throw sanitizedDirectory;
+    // #endregion
+    // #region get files
+    const files = await ToolBox._readDir(directory);
+    // #endregion
+    // #region return files
+    return files;
+    // #endregion
+  };
+
   /**
    * This function will return all subdirectories of a given directory
    */

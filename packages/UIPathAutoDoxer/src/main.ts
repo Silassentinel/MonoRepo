@@ -13,12 +13,13 @@ const { log } = console;
 
 // main takes in arguments from the command line and runs the application
 const main = async (/* args?: yargs.Arguments */) => {
-  const filePath = '/home/silas/code/Git/Repos/Playground/packages/UIPathAutoDoxer/temp/getLatestExcel.xaml';
+  const filePath = './temp/getLatestExcel.xaml';
   const xmlParser = new XmlParser(filePath);
   const xmlAsObject = await xmlParser.parse();
   log(xmlAsObject);
   const templateBuilder = new TemplateBuilder();
-  log(templateBuilder);
+  templateBuilder.BuildList();
+  log(templateBuilder._templates);
   log('fin.');
 };
 
