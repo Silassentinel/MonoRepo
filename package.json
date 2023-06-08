@@ -28,6 +28,6 @@
     ],
     "devDependencies": {
         "@babel/plugin-transform-typescript": "^7.20.2",
-        "turbo": "^1.6.3"
+        "turbo": "^1.9.6"
     }
 }
