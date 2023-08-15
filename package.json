@@ -27,7 +27,7 @@
         "./packages/ViteFront"
     ],
     "devDependencies": {
-        "@babel/plugin-transform-typescript": "^7.22.0",
-        "turbo": "^1.9.6"
+        "@babel/plugin-transform-typescript": "^7.20.2",
+        "turbo": "^1.9.8"
     }
 }
