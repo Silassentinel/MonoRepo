@@ -127,3 +127,6 @@ dist
 
 TypescriptSilasPlayground.code-workspace
 .vscode
+
+
+package-lock.json

@@ -19,7 +19,7 @@ class ToolBox {
   /**
    * Promisified read directory
    */
-  private _readDir = promisify(readdir);
+  private static _readDir = promisify(readdir);
   // #endregion
 
   // #region static methods
