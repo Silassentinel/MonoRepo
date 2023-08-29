@@ -5,6 +5,7 @@ import Home from './Views/Home/main';
 import Repos from './Views/Repos/main';
 import Resume from './Views/Resume/main';
 import TopNavBar from './components/TopNavBar/main';
+import Footer from './compenents/footer/main'
 
 const App = () => {
 
@@ -14,6 +15,7 @@ const App = () => {
       <Home /> 
       <Repos />
       <Resume />
+      <Footer />
     </div>
   )
 }
