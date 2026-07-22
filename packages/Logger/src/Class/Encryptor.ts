@@ -2,7 +2,7 @@
 import EncryptionAlgo from 'Enum/EncryptionAlgo';
 import Crypto, { Hash, HashOptions } from 'crypto';
 import EncryptionError from 'utilities/Errors/EncryptionError';
-import uuid from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import IEncryptor from 'Interface/IEncryptor';
 // #endregion
 /**
@@ -24,7 +24,7 @@ class Encryptor implements IEncryptor {
   /**
    * This property will hold the saltiest salt that ever salted.
    */
-  private _salt : string = uuid.v4();
+  private _salt : string = uuidv4();
   // #endregion
   // #region ctor
   // #endregion
