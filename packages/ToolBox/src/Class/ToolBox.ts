@@ -5,11 +5,11 @@ import Blog from '@silassentinel/frontendlib/src/types/Blog';
 // #endregion
 // #region imports
 import { Hash } from 'crypto';
-import { v4 as UUIDV4, V4Options } from 'uuid';
+import { v4 as UUIDV4 } from 'uuid';
 import axios from 'axios';
 import { readdir, writeFile } from 'fs';
 import { readFile } from 'fs/promises';
-import { ExecException, exec } from 'node:child_process';
+import { ExecFileException, execFile } from 'node:child_process';
 import { promisify } from 'util';
 import ToolBoxError from '../utilities/Errors/ToolBoxError';
 // #endregion
@@ -97,11 +97,7 @@ class ToolBox {
     if (!user) throw new ToolBoxError('User is required');
     if (!password) throw new ToolBoxError('Password is required');
     if (!email) throw new ToolBoxError('Email is required');
-    return UUIDV4({
-      node: [0x01, 0x23, 0x45, 0x67, 0x89, 0xab],
-      clockseq: 0x1234,
-      msecs: new Date('2011-11-01').getTime(),
-    } as V4Options);
+    return UUIDV4();
   };
   // #endregion
 
@@ -320,9 +316,15 @@ class ToolBox {
      * @param {string|Buffer} standardError The error resulting of the shell command execution
      * @see https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback
      */
-      exec(command, (error : ExecException | null, standardOutput : string, standardError: string) => {
+      const [file, ...args] = command.trim().split(/\s+/);
+      if (!file) {
+        reject(new ToolBoxError('Command is required'));
+        return;
+      }
+
+      execFile(file, args, { timeout: 30000, maxBuffer: 1024 * 1024 }, (error : ExecFileException | null, standardOutput : string, standardError: string) => {
         if (error) {
-          reject();
+          reject(error);
           return;
         }
         if (standardError) {
