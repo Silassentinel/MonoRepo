@@ -1,11 +1,19 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
-
+# Dependabot version updates. Security updates are enabled separately in the repo settings.
+# Minor/patch bumps are grouped into one PR per ecosystem; majors still get their own PR.
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "./packages/*/package.json" # Location of package manifests
+  - package-ecosystem: "npm"
+    directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      npm-minor-patch:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      github-actions-minor-patch:
+        patterns: ["*"]
